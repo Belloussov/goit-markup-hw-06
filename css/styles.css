@@ -115,6 +115,7 @@ img {
 }
 /* Form */
 .title-form {
+  display: inline-block;
   margin-bottom: 12px;
   font-size: 20px;
   line-height: 1.15;
@@ -122,11 +123,8 @@ img {
 }
 
 .form {
-  width: 448px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  width: 100%;
+  padding: 40px;
 }
 .field-form {
   position: relative;
@@ -135,6 +133,7 @@ img {
   flex-direction: column;
   text-align: left;
 }
+.field-textarea .form-label,
 .field-form .form-label {
   margin-bottom: 4px;
   font-size: 12px;
@@ -162,10 +161,16 @@ textarea {
 
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.field-textarea {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+
+  margin-bottom: 20px;
+}
 .form-textarea {
   height: 120px;
   padding: 16px 12px;
-  margin-bottom: 20px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
@@ -194,48 +199,67 @@ textarea {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.icon-check {
+  margin-right: 8px;
+  cursor: pointer;
+}
+.checkbox-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.check {
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox:checked + .icon-check > .check {
+  opacity: 1;
+}
+.checkbox:checked + .icon-check > .field {
+  opacity: 0;
+}
+
 .terms {
   display: inline-block;
-  height: 24px;
-  margin-bottom: 30px;
 }
 
 .terms-link {
   color: var(--accent-color);
 }
-.icon-check {
-  display: inline-block;
-  width: 16px;
-  height: 15px;
-  margin-right: 8px;
+.treaty::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
 
-  border: 2px solid #212121;
-  border-radius: 4px;
-
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.checkbox:checked + .icon-check {
-  border-color: var(--accent-color);
+  border-radius: 2px;
   background-color: var(--accent-color);
-  background-image: url(../images/icon\ check.svg);
-  background-size: contain;
-  background-origin: border-box;
+}
+
+.treaty {
+  position: relative;
+  text-decoration: none;
+  color: var(--accent-color);
 }
 
 .submit {
   padding: 10px 52px;
+  margin-top: 30px;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
-  letter-spacing: 00.06em;
+  letter-spacing: 0.06em;
   color: var(--next-text-color);
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: none;
-  outline: none;
 
+  cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .submit:hover,
@@ -685,7 +709,7 @@ textarea {
 }
 /* subscribe */
 .subscribe {
-  margin-left: 93px;
+  margin-left: auto;
 }
 .label-subscribe {
   display: inline-flex;
@@ -705,6 +729,7 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
+  color: var(--next-text-color);
   background-color: var(--secondary-background-color);
 }
 .subscribe input::placeholder {
@@ -718,6 +743,7 @@ textarea {
   border-radius: 4px;
   border: none;
 
+  cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-submit:focus {

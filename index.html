@@ -85,7 +85,7 @@
                     <use href="./images/icons.svg#icon-email-black"></use>
                   </svg>
                 </label>
-                <label class="field-form">
+                <label class="field-textarea">
                   <span class="form-label">Коментар</span>
                   <textarea
                     name="coment"
@@ -94,11 +94,14 @@
                     placeholder="Введіть текст"
                   ></textarea>
                 </label>
-                <label>
+                <label class="checkbox-label">
                   <input type="checkbox" name="terms" class="checkbox" />
-                  <span class="icon-check"></span>
+                  <svg width="16" height="15" class="icon-check">
+                    <use class="field" href="./images/icons.svg#icon-field"></use>
+                    <use class="check" href="./images/icons.svg#icon-check"></use>
+                  </svg>
                   <span class="terms"
-                    >Погоджуюся з розсилкою та приймаю <a href="">Умови договору</a></span
+                    >Погоджуюся з розсилкою та приймаю <a href="" class="treaty">Умови договору</a></span
                   >
                 </label>
                 <button type="submit" class="submit">Відправити</button>
